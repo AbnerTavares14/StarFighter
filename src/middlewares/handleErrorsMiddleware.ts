@@ -8,7 +8,7 @@ export function notFoundError() {
     return { type: "notFound" };
 }
 
-export default function handleErrorsMiddleware(err: ErrorEvent, req: Request, res: Response, next: NextFunction) {
+export default function handleErrorsMiddleware(err: any, req: Request, res: Response, next: NextFunction) {
     if (err.type) {
         res.sendStatus(serviceErrorToStatusCode[err.type]);
     }
